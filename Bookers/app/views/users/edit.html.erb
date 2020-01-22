@@ -1,0 +1,15 @@
+<%= form_for(@user, url: user_path) do |f| %>
+  <h1>User info</h1>
+  <%= render 'layouts/flash' %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <p>Name</p>
+  <%= f.text_field :name, value: @user.name %>
+  <br>
+  <p>Image</p>
+  <%= f.attachment_field :profile_image %>
+  <p>Introduction</p>
+  <%= f.text_area :introduction, rows:"3", value: @user.introduction %>
+
+  <hr>
+  <%= f.submit "Update User" %>
+<% end %>
